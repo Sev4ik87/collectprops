@@ -10,14 +10,14 @@ function validateEmail(email) {
 
 function displayError(errorMessage) {
   errorContainer.innerHTML = `<div class="message error">${errorMessage}</div>`;
-  errorContainer.classList.add("show");
-  errorContainer.classList.remove("hide");
+  errorContainer.classList.toggle("hide", false);
+  errorContainer.classList.toggle("show", true);
 }
 
 function removeError() {
   errorContainer.innerHTML = "";
-  errorContainer.classList.add("hide");
-  errorContainer.classList.remove("show");
+  errorContainer.classList.toggle("hide", true);
+  errorContainer.classList.toggle("show", false);
 }
 
 function validateEmailInput() {
@@ -34,4 +34,4 @@ function validateEmailInput() {
 
 emailInput.addEventListener("change", validateEmailInput);
 
-errorContainer.classList.add("hide");
+errorContainer.classList.toggle("hide", true);
