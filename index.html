@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/src/style.css" type="text/css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer type="module" src="./src/emailvalid.js"></script> 
+    <!-- <script defer type="module" src="./src/password.js"></script>  -->
+
+  <title>Document</title>
+  </head>
+  <body>
+    <form id="person">
+      <div>
+        <label for="f-name">First Name</label>
+        <input type="text" id="f-name" name="firstName"/>
+      </div>
+      <div>
+        <label for="l-name">Last Name</label>
+       <input type="text" id="l-name" name="lastName" />
+     </div>
+     <div>
+       <label for="email">Email</label>
+       <input type="text" id="email" name="email" />
+      </div>
+      <div>
+        <label for="nick-name">Nick Name</label>
+        <input type="text" id="nick-name" name="nickName"/>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+      </div>
+      <div>
+        <label for="c-password">Conf pass</label>
+        <input type="password" id="c-password" name="c-password" />
+      </div>
+      <div id="btn-person">
+        <button>Ok</button>
+        <button>Cancel</button>
+      </div>
+      <div id="errorContainer"></div>
+
+    </form>
+  </body>
+</html>
