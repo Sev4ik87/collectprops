@@ -1,17 +1,7 @@
 "use strict";
 
-const btnOk = document.querySelector("#btn-person button:first-child");
 const errorContainer = document.querySelector("#errorContainer");
-
-class Person {
-	constructor(firstName, lastName, email, nickName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.nickName = nickName;
-  }
-}
-
+const emailInput = document.querySelector('input[name="email"]');
 
 function validateEmail(email) {
   const emailRegex = /^[\w.-]+@[a-zA-Z_-]+?(?:\.[a-zA-Z]{2,})+$/;
@@ -30,35 +20,8 @@ function removeError() {
   errorContainer.classList.remove("show");
 }
 
-function collectPropsFromForm(event) {
-  event.preventDefault();
-  const collectionProps = Array.from(
-		document.querySelectorAll('#person input[type="text"]')
-  );
-  const lastName = document.querySelector('input[name="lastName"]');
-  const arrValues = collectionProps.map((item) => item.value);
-  const person = new Person(...arrValues);
-  localStorage.setItem(`${lastName.value}`, JSON.stringify(person));
-  const emailInput = document.querySelector('input[name="email"]');
-
-  const email = emailInput.value;
-  if (!validateEmail(email)) {
-    displayError("Некорректный email");
-    emailInput.classList.add("error");
-    return;
-  }
-
-  removeError();
-  emailInput.classList.remove("error");
-}
-
-btnOk.addEventListener("click", collectPropsFromForm);
-
-const emailInput = document.querySelector('input[name="email"]');
-emailInput.addEventListener("input", validateEmailInput);
-
 function validateEmailInput() {
-  const email = this.value;
+  const email = emailInput.value;
   if (!validateEmail(email)) {
     displayError("Некорректный email");
     emailInput.classList.add("error");
@@ -67,4 +30,8 @@ function validateEmailInput() {
     emailInput.classList.remove("error");
   }
 }
+
+
+emailInput.addEventListener("change", validateEmailInput);
+
 errorContainer.classList.add("hide");
