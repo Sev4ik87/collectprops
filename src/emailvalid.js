@@ -1,6 +1,10 @@
 "use strict";
 
-const errorContainer = document.querySelector("#errorContainer");
+const errorContainer = document.createElement("div");
+errorContainer.id = "errorContainer";
+errorContainer.classList.add("hide");
+document.body.appendChild(errorContainer);
+
 const emailInput = document.querySelector('input[name="email"]');
 
 function validateEmail(email) {
@@ -9,15 +13,15 @@ function validateEmail(email) {
 }
 
 function displayError(errorMessage) {
-  errorContainer.innerHTML = `<div class="message error">${errorMessage}</div>`;
-  errorContainer.classList.toggle("hide", false);
-  errorContainer.classList.toggle("show", true);
+  errorContainer.textContent = errorMessage;
+  errorContainer.classList.remove("hide");
+  errorContainer.classList.add("show");
 }
 
 function removeError() {
-  errorContainer.innerHTML = "";
-  errorContainer.classList.toggle("hide", true);
-  errorContainer.classList.toggle("show", false);
+  errorContainer.textContent = "";
+  errorContainer.classList.remove("show");
+  errorContainer.classList.add("hide");
 }
 
 function validateEmailInput() {
@@ -34,4 +38,4 @@ function validateEmailInput() {
 
 emailInput.addEventListener("change", validateEmailInput);
 
-errorContainer.classList.toggle("hide", true);
+errorContainer.classList.add("hide");
