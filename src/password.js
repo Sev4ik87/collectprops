@@ -16,5 +16,6 @@ function checkPasswordMatch(event) {
   }
 }
 
-const btnOk = document.querySelector('#btn-person button:first-child');
-btnOk.addEventListener('click', checkPasswordMatch);
+const confirmPasswordInput = document.querySelector('input[name="c-password"]');
+confirmPasswordInput.addEventListener('change', checkPasswordMatch);
+
