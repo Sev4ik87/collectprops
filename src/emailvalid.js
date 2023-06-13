@@ -1,9 +1,10 @@
 "use strict";
 
+const personForm = document.getElementById("person");
 const errorContainer = document.createElement("div");
 errorContainer.id = "errorContainer";
 errorContainer.classList.add("hide");
-document.body.appendChild(errorContainer);
+personForm.appendChild(errorContainer);
 
 const emailInput = document.querySelector('input[name="email"]');
 
@@ -38,4 +39,4 @@ function validateEmailInput() {
 
 emailInput.addEventListener("change", validateEmailInput);
 
-errorContainer.classList.add("hide");
+ errorContainer.classList.add("hide");
