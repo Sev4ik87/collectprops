@@ -1,10 +1,11 @@
 "use strict";
+const confirmPasswordInput = document.querySelector('input[name="c-password"]');
+
 
 function checkPasswordMatch(event) {
   event.preventDefault(); 
 
   const passwordInput = document.querySelector('input[name="password"]');
-  const confirmPasswordInput = document.querySelector('input[name="c-password"]');
 
   const password = passwordInput.value;
   const confirmPassword = confirmPasswordInput.value;
@@ -16,6 +17,5 @@ function checkPasswordMatch(event) {
   }
 }
 
-const confirmPasswordInput = document.querySelector('input[name="c-password"]');
 confirmPasswordInput.addEventListener('change', checkPasswordMatch);
 
